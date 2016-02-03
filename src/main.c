@@ -27,6 +27,7 @@
 #include "stm32f30x.h"
 #include "stm32f3_discovery.h"
 #include "common.h"
+#include "vectors.h"
 
 #include "hook.h"
 

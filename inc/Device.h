@@ -9,20 +9,30 @@
 #define SRC_DRIVER_DEVICE_H_
 
 #include "stm32f3_discovery.h"
+#include "stm32f30x_gpio.h"
+#include "hal.h"
+
+typedef struct {
+	volatile uint32_t *mode;
+	volatile uint32_t *speed;
+	volatile uint32_t *pull;
+	volatile uint16_t *input;
+	volatile uint16_t *output;
+} GPIOPort;
 
 class Device
 {
 	public:
-		Device(unsigned short port, unsigned short mask, unsigned short shift);
+		Device(GPIO_TypeDef* gpio, unsigned short pin);
 		virtual ~Device();
+		void init();
 		uint16_t read();
 		void write(uint16_t data);
 
 
 	private:
-		uint16_t *port;
-		uint16_t bitmask;
-		uint16_t bitshift;
+		GPIO_TypeDef* gpio;
+		unsigned int pin;
 };
 
 

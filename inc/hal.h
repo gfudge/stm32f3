@@ -42,6 +42,12 @@
 #define GPIO_E_IDR   (GPIO_E_BASE_ADDR + 0x10)
 #define GPIO_E_ODR   (GPIO_E_BASE_ADDR + 0x14)
 
+/* Port Definitions */
+#define MODE_INPUT		0x0
+#define MODE_OUTPUT		0x55555555
+#define SPEED			0xffffffff
+#define PULLDOWN		0xaaaaaaaa
+
 // Device addresses
 #define DEV_MOTOR_CTRL_IDR		GPIO_D_IDR
 #define DEV_MOTOR_DIR_IDR		GPIO_D_IDR

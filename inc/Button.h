@@ -16,7 +16,9 @@ public:
 	Button(unsigned short port,
 			unsigned short mask,
 			unsigned short shift)
-		: Device(port, mask,shift) {};
+		: Device(port, mask,shift) {
+		this->gpio.mode(MODE_INPUT);
+	};
 	virtual ~Button();
 
 	bool Get();

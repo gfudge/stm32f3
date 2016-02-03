@@ -7,10 +7,9 @@
 
 #include "Device.h"
 
-Device::Device(unsigned short port, unsigned short mask, unsigned short shift) {
-	*this->port 	= static_cast<uint16_t>(port);
-	this->bitmask 	= static_cast<uint16_t>(mask);
-	this->bitshift 	= static_cast<uint16_t>(shift);
+Device::Device(GPIO_TypeDef* gpio, unsigned short pin, ) {
+	this->gpio 	= gpio;
+	this->pin 	= pin;
 }
 
 Device::~Device() {
@@ -18,16 +17,20 @@ Device::~Device() {
 /* Should we write zero to the output? */
 }
 
+/* Device Initialisation */
+void Device::init() {
+	GPIO_InitTypeDef GPIO_InitStructure;
+	RCC_AHBPeriphClockCmd(GPIO_CLK[this->pin], ENABLE);
+	GPIO_InitStructure.GPIO_Pin this->pin;
+
+	GPIO_ResetBits(this->gpio, this->pin);
+}
+
 void Device::write(uint16_t data) {
-	/* Blank out bits */
-	*(this->port) &= ~(this->bitmask << this->bitshift);
-	/* Write data bits */
-	*(this->port) |= ((data & this->bitmask) << this->bitshift);
-	return;
+	GPIO_Write(this->gpio, data);
 }
 
 uint16_t Device::read() {
-	uint16_t data;
-	data = *(this->port) & this->bitmask;
-	return data;
+	return GPIO_ReadOutputDataBit(this->gpio, this->pin);
+
 }
