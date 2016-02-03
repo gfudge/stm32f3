@@ -7,8 +7,19 @@
 
 #include "ButtonController.h"
 
+/* Port D, Port E */
+
 ButtonController::ButtonController() {
-	GPIO_Init()
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	/* Enable Button Clock */
+	RCC_AHBPeriphClockCmd(BUTTON_CLOCK, ENABLE);
+
+	/* Configure GPIO As Input */
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_InitStructure.GPIO_Pin  = BUTTON_RED | BUTTON_YELLOW | BUTTON_GREEN | BUTTON_ACCEPT | BUTTON_CANCEL;
+	GPIO_Init(BUTTON_GPIO, &GPIO_InitStructure);
 }
 
 ButtonController::~ButtonController() {

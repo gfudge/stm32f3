@@ -9,7 +9,6 @@
 #define SRC_DRIVER_LEDCONTROLLER_H_
 
 #include "DeviceController.h"
-#include "LED.h"
 #include "hal.h"
 #include <vector>
 
@@ -21,8 +20,7 @@ public:
 	void on();
 	void off();
 private:
-	/* Overloaded Device Vector */
-	std::vector<LED*> devices;
+
 };
 
 #endif /* SRC_DRIVER_LEDCONTROLLER_H_ */

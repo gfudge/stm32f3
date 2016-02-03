@@ -11,12 +11,18 @@
 #include "DeviceController.h"
 #include "hal.h"
 #include "stm32f30x_gpio.h"
+#include "stm32f30x_rcc.h"
 
-#define BUTTON_RED		0x0
-#define BUTTON_YELLOW	0x1
-#define BUTTON_GREEN	0x2
-#define BUTTON_ACCEPT	0x3
-#define BUTTON_CANCEL	0x4
+enum {
+	BUTTON_RED,
+	BUTTON_YELLOW,
+	BUTTON_GREEN,
+	BUTTON_ACCEPT,
+	BUTTON_CANCEL
+};
+
+#define BUTTON_CLOCK	RCC_AHBPeriph_GPIOE
+#define BUTTON_GPIO		GPIOE
 
 class ButtonController: public DeviceController {
 public:

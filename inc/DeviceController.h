@@ -12,8 +12,6 @@
 /* Standard Libraries */
 #include <vector>
 
-/* Driver Libraries */
-#include "Device.h"
 
 class DeviceController
 {
@@ -22,11 +20,9 @@ public:
 	virtual ~DeviceController();
 	int getDeviceCount();
 
-	/* Interrupt Routines */
-//	int interrupt(IOInterrupt & interrupt);
+
 protected:
-	//std::vector<Device*> devices;
-	std::vector<Device*> devices;
+
 };
 
 #endif /* SRC_DRIVER_DEVICECONTROLLER_H_ */

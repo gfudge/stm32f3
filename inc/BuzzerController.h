@@ -10,7 +10,7 @@
 
 #include "DeviceController.h"
 #include "hal.h"
-#include "Buzzer.h"
+
 
 class BuzzerController :
 		public DeviceController
@@ -25,7 +25,7 @@ class BuzzerController :
 
 	private:
 		bool state;
-		std::vector<Buzzer*> devices;
+
 	};
 
 #endif /* SRC_DRIVER_BUZZERCONTROLLER_H_ */

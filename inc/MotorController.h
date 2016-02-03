@@ -9,7 +9,6 @@
 #define SRC_DRIVER_MOTORCONTROLLER_H_
 
 #include "DeviceController.h"
-#include "Motor.h"
 
 class MotorController: public DeviceController {
 public:

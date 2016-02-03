@@ -33,9 +33,9 @@ bool Testbench::RunBuzzerTest() {
 
 	/* Toggle the buzzer for 1 second*/
 	myBuzzer->on();
-	this->delay(1000);
+	//this->delay(1000);
 	myBuzzer->off();
-	this->delay(1000);
+	//this->delay(1000);
 
 	delete myBuzzer;
 	return true;
@@ -47,7 +47,7 @@ bool Testbench::RunButtonTest() {
 	/* Check the button */
 	bool pressed = false;
 	do {
-		pressed = myButton->getButtonState();
+		pressed = myButton->getButtonAccept();
 	} while(!pressed);
 
 	delete myButton;
@@ -59,7 +59,7 @@ bool Testbench::RunLEDTest() {
 
 	/* Set led for 1 second */
 	myLED->on();
-	this->delay(1000);
+	//this->delay(1000);
 	myLED->off();
 
 	delete myLED;

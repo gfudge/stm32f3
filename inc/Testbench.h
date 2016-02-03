@@ -12,7 +12,10 @@
 #include "ButtonController.h"
 #include "LEDController.h"
 #include "MotorController.h"
-#include "common.h"
+
+extern "C" {
+	#include "common.h"
+}
 
 class Testbench {
 public:
