@@ -12,6 +12,7 @@
 #include "ButtonController.h"
 #include "LEDController.h"
 #include "MotorController.h"
+#include "SevenSegController.h"
 
 extern "C" {
 	#include "common.h"
@@ -29,6 +30,7 @@ public:
 	bool RunLEDTest();
 	bool RunButtonTest();
 	bool RunMotorTest();
+	bool RunSevenSegTest();
 
 private:
 	void delay(unsigned int ms);
